@@ -1,0 +1,1 @@
+zip -r lambda_function.zip psycopg2/* y despues zip -r lambda_function.zip lambda_function.py
