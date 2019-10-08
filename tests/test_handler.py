@@ -13,17 +13,19 @@ class TestHandlerCase(unittest.TestCase):
         self.assertEqual(result['headers']['Content-Type'], 'application/json')
         self.assertIn('Hello from '+event['Country'], result['body'])
         event={
-            "number": "1",
-            "salon": "A201",
-            "producto": "Pizza",
-             "bebida": "Agua",
-            "tarjeta": "515930483000957"
+            "slots": {
+                "number": "1",
+                "salon": "A201",
+                "producto": "Pizza",
+                "bebida": "Agua",
+                "tarjeta": "515930483000957"
             }
+        }
         result = lambda_function.lambda_handler(event, None)
         print(result)
         self.assertEqual(result['statusCode'], 200)
         self.assertEqual(result['headers']['Content-Type'], 'application/json')
-        self.assertIn("Gracias por su orden de " + event['amount'] + " " + event['product'] + " al salon " + event['salon'], result['body'])
+        self.assertIn("Gracias por su orden de " + event['amount'] + " " + event['product'] + " al salon " + event['salon'], result['content'])
         # self.assertIn('Hello from '+event['Country'], result['body'])
 
 if __name__ == '__main__':
