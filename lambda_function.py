@@ -1,5 +1,5 @@
 import json
-from psycopg2 import *
+import psycopg2
 
 db_host = "domicilio.cd1xq6ssophg.us-east-1.rds.amazonaws.com"
 db_port = 5432
