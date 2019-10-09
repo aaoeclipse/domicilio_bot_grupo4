@@ -1,5 +1,5 @@
 import json
-import psycopg2
+import aws-psycopg2
 
 db_host = "domicilio.cd1xq6ssophg.us-east-1.rds.amazonaws.com"
 db_port = 5432
@@ -14,7 +14,7 @@ salones_disponibles = ['A101', 'A201', 'A301', 'E101', 'E201', 'E301', 'J101', '
 def make_conn():
     conn = None
     try:
-        conn = psycopg2.connect("dbname='%s' user='%s' host='%s' password='%s'" % (db_name, db_user, db_host, db_pass))
+        conn = aws-psycopg2.connect("dbname='%s' user='%s' host='%s' password='%s'" % (db_name, db_user, db_host, db_pass))
     except:
         print ("I am unable to connect to the database")
     return conn
