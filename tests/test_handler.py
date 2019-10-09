@@ -16,6 +16,7 @@ class TestHandlerCase(unittest.TestCase):
                 }
             }
         }
+        
         result = lambda_function.lambda_handler(event, None)
         print(result)
         # self.assertEqual(result['statusCode'], 200)
