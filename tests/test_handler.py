@@ -20,7 +20,7 @@ class TestHandlerCase(unittest.TestCase):
         print(result)
         # self.assertEqual(result['statusCode'], 200)
         # self.assertEqual(result['headers']['Content-Type'], 'application/json')
-        self.assertIn("Gracias por su orden de " + event['currentIntent']['slots']['number'] + " " + event['currentIntent']['slots']['producto'] + " al salon " + event['currentIntent']['slots']['salon'], result['content'])
+        self.assertIn("Gracias por su orden de " + event['currentIntent']['slots']['number'] + " " + event['currentIntent']['slots']['producto'] + " al salon " + event['currentIntent']['slots']['salon'], result['dialogAction']['message']['content'])
         # self.assertIn('Hello from '+event['Country'], result['body'])
 
     def test_error_en_tarjeta(self):
@@ -39,7 +39,7 @@ class TestHandlerCase(unittest.TestCase):
 
         # self.assertEqual(result['statusCode'], 400)
         # self.assertEqual(result['headers']['Content-Type'], 'application/json')
-        self.assertIn("Lamentablemente no se logro procesar la orden. Favor verificar el numero de tarjeta", result['content'])
+        self.assertIn("Lamentablemente no se logro procesar la orden. Favor verificar el numero de tarjeta", result['dialogAction']['message']['content'])
 
 
 
