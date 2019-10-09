@@ -6,12 +6,14 @@ class TestHandlerCase(unittest.TestCase):
 
     def test_correr_una_orden_de_pizza_con_agua(self):
         event={
+            "currentIntent": {
             "slots": {
                 "number": "1",
                 "salon": "A201",
                 "producto": "Pizza",
                 "bebida": "Agua",
                 "tarjeta": "515930483000957"
+                }
             }
         }
         result = lambda_function.lambda_handler(event, None)
@@ -23,12 +25,14 @@ class TestHandlerCase(unittest.TestCase):
 
     def test_error_en_tarjeta(self):
         event={
+            "currentIntent": {
             "slots": {
                 "number": "1",
                 "salon": "A201",
                 "producto": "Pizza",
                 "bebida": "Agua",
                 "tarjeta": "12312"
+                }
             }
         }
         result = lambda_function.lambda_handler(event, None)
