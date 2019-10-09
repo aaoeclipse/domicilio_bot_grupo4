@@ -20,7 +20,7 @@ class TestHandlerCase(unittest.TestCase):
         print(result)
         # self.assertEqual(result['statusCode'], 200)
         # self.assertEqual(result['headers']['Content-Type'], 'application/json')
-        self.assertIn("Gracias por su orden de " + event['number'] + " " + event['product'] + " al salon " + event['salon'], result['content'])
+        self.assertIn("Gracias por su orden de " + event['currentIntent']['slots']['number'] + " " + event['currentIntent']['slots']['product'] + " al salon " + event['currentIntent']['slots']['salon'], result['content'])
         # self.assertIn('Hello from '+event['Country'], result['body'])
 
     def test_error_en_tarjeta(self):
