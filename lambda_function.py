@@ -14,7 +14,7 @@ salones_disponibles = ['A101', 'A201', 'A301', 'E101', 'E201', 'E301', 'J101', '
 def make_conn():
     conn = None
     try:
-        conn = aws-psycopg2.connect("dbname='%s' user='%s' host='%s' password='%s'" % (db_name, db_user, db_host, db_pass))
+        conn = psycopg2.connect("dbname='%s' user='%s' host='%s' password='%s'" % (db_name, db_user, db_host, db_pass))
     except:
         print ("I am unable to connect to the database")
     return conn
